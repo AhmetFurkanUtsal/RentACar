@@ -3,7 +3,7 @@ using Business.Concrete;
 using DataAccess.Concrete.EntityFramework;
 using DataAccess.Concrete.InMemory;
 
-Console.WriteLine("Hello, World!");
+
 
 
 CarManager carManager = new CarManager(new EfCarDal());

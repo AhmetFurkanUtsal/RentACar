@@ -19,9 +19,50 @@ namespace Business.Concrete
             _carDal = carDal;
         }
 
+        public void Add(Car car)
+        {
+            if (car.DailyPrice>0 && car.Description.Length>=2)
+            {
+                _carDal.Add(car);
+            }
+            else
+            {
+                Console.WriteLine("Günlü kiralama ücreti 0 dan büyük olmalı ve Araç ismi en az 2 karakter olmalı");
+            }
+        }
+
+        public void Delete(Car car)
+        {
+           _carDal.Delete(car);
+        }
+
         public List<Car> GetAll()
         {
             return _carDal.GetAll();
+        }
+
+      
+
+        public List<Car> GetByColorId(int id)
+        {
+            return _carDal.GetAll(p=>p.ColorId == id);
+        }
+
+
+
+        public List<Car> GetCarByBrandId(int id)
+        {
+            return _carDal.GetAll(p=> p.BrandId == id); 
+        }
+
+        public void Update()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update(Car car)
+        {
+           _carDal.Update(car);
         }
     }
 }

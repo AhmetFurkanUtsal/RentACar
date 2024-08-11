@@ -46,13 +46,13 @@ namespace DataAccess.Concrete.EntityFramework
         {
             using (RentACarContext context = new RentACarContext())
             {
-                
-                return filter == null ? 
-                    context.Set<Car>().ToList()
-                    : context.Set<Car>().Where(filter).ToList();
 
-                    //selecet * from product -- listeye çevir
-                    // eğer filtre verilmiş ise filtrele listeye çevir
+                return filter == null ?
+                context.Set<Car>().ToList()
+                : context.Set<Car>().Where(filter).ToList();
+
+                //selecet * from product -- listeye çevir
+                // eğer filtre verilmiş ise filtrele listeye çevir
             }
         }
 
