@@ -13,27 +13,58 @@ namespace DataAccess.Concrete.EntityFramework
     {
         public void Add(Car entity)
         {
-            throw new NotImplementedException();
+            using (RentACarContext context = new RentACarContext()) // performans 
+            {
+                var addedEntity = context.Entry(entity); // verilen nesneye eriş
+                addedEntity.State = Microsoft.EntityFrameworkCore.EntityState.Added;
+                // erişilen nesneyi ekle
+                context.SaveChanges();
+            }
         }
 
         public void Delete(Car entity)
         {
-            throw new NotImplementedException();
+            using (RentACarContext context = new RentACarContext()) // performans 
+            {
+                var deletedEntity = context.Entry(entity); // verilen nesneye eriş
+                deletedEntity.State = Microsoft.EntityFrameworkCore.EntityState.Deleted;
+                // erişilen nesneyi ekle
+                context.SaveChanges();
+            }
         }
 
         public Car Get(Expression<Func<Car, bool>> filter)
         {
-            throw new NotImplementedException();
+            using (RentACarContext context = new RentACarContext())
+            {
+                return context.Set<Car>().SingleOrDefault(filter);
+                    // db set car a bağlan
+            }
         }
 
         public List<Car> GetAll(Expression<Func<Car, bool>> filter = null)
         {
-            throw new NotImplementedException();
+            using (RentACarContext context = new RentACarContext())
+            {
+                
+                return filter == null ? 
+                    context.Set<Car>().ToList()
+                    : context.Set<Car>().Where(filter).ToList();
+
+                    //selecet * from product -- listeye çevir
+                    // eğer filtre verilmiş ise filtrele listeye çevir
+            }
         }
 
         public void Update(Car entity)
         {
-            throw new NotImplementedException();
+            using (RentACarContext context = new RentACarContext()) // performans 
+            {
+                var updatedEntity = context.Entry(entity); // verilen nesneye eriş
+                updatedEntity.State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+                // erişilen nesneyi ekle
+                context.SaveChanges();
+            }
         }
     }
 }
