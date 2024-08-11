@@ -1,4 +1,5 @@
-﻿using Entities.Concrete;
+﻿using Entities.Abstract;
+using Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,9 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Abstract
 {
-    public interface IEntityRepository<T>
+    //generic constraint
+    // class : referans tip
+    public interface IEntityRepository<T> where T: class, IEntity, new()
     {
         void Add(T entity);
         void Update(T entity);
