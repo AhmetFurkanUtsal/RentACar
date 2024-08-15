@@ -45,20 +45,17 @@ namespace Business.Concrete
 
         public List<Car> GetByColorId(int id)
         {
-            return _carDal.GetAll(p=>p.ColorId == id);
+            return _carDal.GetAll(c => c.ColorId == id);
         }
 
 
 
         public List<Car> GetCarByBrandId(int id)
         {
-            return _carDal.GetAll(p=> p.BrandId == id); 
+            return _carDal.GetAll(c=> c.BrandId == id); 
         }
 
-        public void Update()
-        {
-            throw new NotImplementedException();
-        }
+      
 
         public void Update(Car car)
         {

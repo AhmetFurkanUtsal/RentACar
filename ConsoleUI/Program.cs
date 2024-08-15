@@ -8,7 +8,7 @@ using DataAccess.Concrete.InMemory;
 
 CarManager carManager = new CarManager(new EfCarDal());
 
-foreach (var car in carManager.GetAll())
+foreach (var car in carManager.GetCarByBrandId(2))
 {
     Console.WriteLine(car.Description);
 }
