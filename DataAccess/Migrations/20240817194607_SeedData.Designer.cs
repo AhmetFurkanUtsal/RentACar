@@ -3,6 +3,7 @@ using DataAccess.Concrete.EntityFramework;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(RentACarContext))]
-    partial class RentACarContextModelSnapshot : ModelSnapshot
+    [Migration("20240817194607_SeedData")]
+    partial class SeedData
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -47,11 +50,6 @@ namespace DataAccess.Migrations
                         {
                             BrandId = 2,
                             BrandName = "Ford"
-                        },
-                        new
-                        {
-                            BrandId = 3,
-                            BrandName = "Bmw"
                         });
                 });
 
@@ -90,7 +88,7 @@ namespace DataAccess.Migrations
                             BrandId = 1,
                             ColorId = 1,
                             DailyPrice = 500.0,
-                            Description = "Ortadoğu içn özel tasarım",
+                            Description = "Sedan car with great mileage",
                             ModelYear = 2022
                         },
                         new
@@ -99,17 +97,8 @@ namespace DataAccess.Migrations
                             BrandId = 2,
                             ColorId = 2,
                             DailyPrice = 1500.0,
-                            Description = "Alırsın Ford olursun lord",
+                            Description = "Luxury sports car",
                             ModelYear = 2023
-                        },
-                        new
-                        {
-                            CarId = 3,
-                            BrandId = 3,
-                            ColorId = 3,
-                            DailyPrice = 1222.0,
-                            Description = "sinyal kullanmayanlar için",
-                            ModelYear = 2022
                         });
                 });
 
@@ -139,11 +128,6 @@ namespace DataAccess.Migrations
                         {
                             ColorId = 2,
                             ColorName = "Blue"
-                        },
-                        new
-                        {
-                            ColorId = 3,
-                            ColorName = "Pink"
                         });
                 });
 #pragma warning restore 612, 618
