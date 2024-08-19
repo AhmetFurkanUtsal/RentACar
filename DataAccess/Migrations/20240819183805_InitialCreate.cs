@@ -2,6 +2,8 @@
 
 #nullable disable
 
+#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
+
 namespace DataAccess.Migrations
 {
     /// <inheritdoc />
@@ -51,6 +53,36 @@ namespace DataAccess.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Colors", x => x.ColorId);
+                });
+
+            migrationBuilder.InsertData(
+                table: "Brands",
+                columns: new[] { "BrandId", "BrandName" },
+                values: new object[,]
+                {
+                    { 1, "Toyota" },
+                    { 2, "Ford" },
+                    { 3, "Bmw" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Cars",
+                columns: new[] { "CarId", "BrandId", "ColorId", "DailyPrice", "Description", "ModelYear" },
+                values: new object[,]
+                {
+                    { 1, 1, 1, 500.0, "Ortadoğu içn özel tasarım", 2022 },
+                    { 2, 2, 2, 1500.0, "Alırsın Ford olursun lord", 2023 },
+                    { 3, 3, 3, 1222.0, "sinyal kullanmayanlar için", 2022 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Colors",
+                columns: new[] { "ColorId", "ColorName" },
+                values: new object[,]
+                {
+                    { 1, "Red" },
+                    { 2, "Blue" },
+                    { 3, "Pink" }
                 });
         }
 

@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(RentACarContext))]
-    [Migration("20240811175924_InitialCreate")]
+    [Migration("20240819183805_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -39,6 +39,23 @@ namespace DataAccess.Migrations
                     b.HasKey("BrandId");
 
                     b.ToTable("Brands");
+
+                    b.HasData(
+                        new
+                        {
+                            BrandId = 1,
+                            BrandName = "Toyota"
+                        },
+                        new
+                        {
+                            BrandId = 2,
+                            BrandName = "Ford"
+                        },
+                        new
+                        {
+                            BrandId = 3,
+                            BrandName = "Bmw"
+                        });
                 });
 
             modelBuilder.Entity("Entities.Concrete.Car", b =>
@@ -68,6 +85,35 @@ namespace DataAccess.Migrations
                     b.HasKey("CarId");
 
                     b.ToTable("Cars");
+
+                    b.HasData(
+                        new
+                        {
+                            CarId = 1,
+                            BrandId = 1,
+                            ColorId = 1,
+                            DailyPrice = 500.0,
+                            Description = "Ortadoğu içn özel tasarım",
+                            ModelYear = 2022
+                        },
+                        new
+                        {
+                            CarId = 2,
+                            BrandId = 2,
+                            ColorId = 2,
+                            DailyPrice = 1500.0,
+                            Description = "Alırsın Ford olursun lord",
+                            ModelYear = 2023
+                        },
+                        new
+                        {
+                            CarId = 3,
+                            BrandId = 3,
+                            ColorId = 3,
+                            DailyPrice = 1222.0,
+                            Description = "sinyal kullanmayanlar için",
+                            ModelYear = 2022
+                        });
                 });
 
             modelBuilder.Entity("Entities.Concrete.Color", b =>
@@ -85,6 +131,23 @@ namespace DataAccess.Migrations
                     b.HasKey("ColorId");
 
                     b.ToTable("Colors");
+
+                    b.HasData(
+                        new
+                        {
+                            ColorId = 1,
+                            ColorName = "Red"
+                        },
+                        new
+                        {
+                            ColorId = 2,
+                            ColorName = "Blue"
+                        },
+                        new
+                        {
+                            ColorId = 3,
+                            ColorName = "Pink"
+                        });
                 });
 #pragma warning restore 612, 618
         }
