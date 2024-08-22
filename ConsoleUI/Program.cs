@@ -31,7 +31,7 @@ List<CarDetailDto> carDetails = carManager.GetCarDetails().Data;
 
 foreach (var carDetail in carDetails)
 {
-    Console.WriteLine($"Car Description: {carDetail.Description}, Brand Name: {carDetail.BrandName} ,Color: {carDetail.ColorName}");
+    Console.WriteLine($"Car Description: {carDetail.Description}, {carDetail.BrandName} ,{carDetail.ColorName}");
 }
 
 

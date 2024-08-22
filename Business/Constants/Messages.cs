@@ -9,9 +9,18 @@ namespace Business.Constants
 
     public static class Messages
     {
-        public static string ProductAdded = "Ürün eklendi";
-        public static string ProductNameInvalid = "Ürün ismi geçersiz";
+        public static string Added = "Ürün eklendi";
+        public static string Updated = "Ürün güncellendi";
+        public static string Deleted = "Ürün Silindi";
+        public static string Listed = "Ürün listelendi";
+
+
+
+        public static string NameInvalid = "Ürün ismi geçersiz";
         public static string Error = "Error";
+
+        
+
 
     }
 }

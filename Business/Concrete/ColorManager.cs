@@ -1,4 +1,6 @@
 ﻿using Business.Abstract;
+using Business.Constants;
+using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using System;
@@ -18,34 +20,39 @@ namespace Business.Concrete
             _color = color;
         }
 
-        public void Add(Color color)
+        public Result Add(Color color)
         {
             _color.Add(color);
+            return new Result(true);
         }
 
-        public void Delete(Color color)
+        public Result Delete(Color color)
         {
            _color.Delete(color);
+            return new Result(true);
+            
         }
 
-        public List<Color> GetAll()
+        public IDataResult <List<Color>> GetAll()
         {
-            return _color.GetAll();
+            return new SuccessDataResult<List<Color>> (_color.GetAll());
+            
         }
 
-        public List<Color> GetByColorId(int id)
+        public IDataResult <List<Color>> GetByColorId(int id)
         {
-            return _color.GetAll(c=>c.ColorId == id);
+            return new SuccessDataResult<List<Color>> (_color.GetAll(c=>c.ColorId == id));
         }
 
-        public List<Color> GetCarByBrandId(int id)
+        public IDataResult <List<Color>> GetCarByBrandId(int id)
         {
-           return _color.GetAll(c=>c.ColorId== id);
+           return new SuccessDataResult<List<Color>> (_color.GetAll(c=>c.ColorId== id));
         }
 
-        public void Update(Color color)
+        public Result Update(Color color)
         {
             _color.Update(color);
+            return new Result(true,Messages.Updated);
         }
     }
 }

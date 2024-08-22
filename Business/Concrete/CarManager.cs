@@ -33,7 +33,7 @@ namespace Business.Concrete
                 return new ErrorResult(Messages.Error);
             }
         
-            return new SuccessResult(Messages.ProductAdded);
+            return new SuccessResult(Messages.Added);
         }
 
         public IResult Delete(Car car)
@@ -44,7 +44,7 @@ namespace Business.Concrete
 
         public IDataResult<List<Car>> GetAll()
         {
-            return new SuccessDataResult<List<Car>>(_carDal.GetAll(), true, "Ürünler listelendi");
+            return new SuccessDataResult<List<Car>>(_carDal.GetAll(), true, Messages.Listed);
         }
 
       
