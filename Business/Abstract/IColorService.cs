@@ -12,11 +12,11 @@ namespace Business.Abstract
     {
         IDataResult <List<Color>> GetAll();
 
-        Result Add(Color color);
+        IResult Add(Color color);
 
-        Result Update(Color color);
+        IResult Update(Color color);
 
-        Result Delete(Color color);
+        IResult Delete(Color color);
 
         IDataResult <List<Color>> GetCarByBrandId(int id);
 

@@ -18,7 +18,7 @@ namespace Business.Concrete
     public class CarManager : ICarService
     {
         ICarDal _carDal;
-        private EfBrandDal efBrandDal;
+        
 
         public CarManager(ICarDal carDal)
         {

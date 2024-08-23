@@ -20,13 +20,13 @@ namespace Business.Concrete
             _color = color;
         }
 
-        public Result Add(Color color)
+        public IResult Add(Color color)
         {
             _color.Add(color);
             return new Result(true);
         }
 
-        public Result Delete(Color color)
+        public IResult Delete(Color color)
         {
            _color.Delete(color);
             return new Result(true);
@@ -49,7 +49,7 @@ namespace Business.Concrete
            return new SuccessDataResult<List<Color>> (_color.GetAll(c=>c.ColorId== id));
         }
 
-        public Result Update(Color color)
+        public IResult Update(Color color)
         {
             _color.Update(color);
             return new Result(true,Messages.Updated);
