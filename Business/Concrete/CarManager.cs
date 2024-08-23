@@ -39,7 +39,7 @@ namespace Business.Concrete
         public IResult Delete(Car car)
         {
            _carDal.Delete(car);
-            return new Result(true,"");
+            return new Result(true, Messages.Deleted);
         }
 
         public IDataResult<List<Car>> GetAll()
@@ -69,7 +69,7 @@ namespace Business.Concrete
         public IResult Update(Car car)
         {
            _carDal.Update(car);
-            return new SuccessResult(""); 
+            return new SuccessResult(Messages.Updated); 
         }
     }
 }
